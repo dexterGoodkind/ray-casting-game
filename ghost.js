@@ -1,6 +1,6 @@
 class Ghost{
   constructor() {
-    this.boundaryOffset = 25;
+    this.boundaryOffset = 10;
     this.size = 30; 
     this.counter = 0; // counts how many steps it's been moving in the same direction
     this.dir = createVector(random(-1, 1), random(-1, 1));
@@ -82,16 +82,20 @@ class Ghost{
     let newXpos = this.pos.x + this.dir.x;
     let newYpos = this.pos.y + this.dir.y; 
     if (newXpos <= this.boundaryOffset) {
-      newXpos = this.boundaryOffset + 1;
+//       newXpos = this.boundaryOffset + 1;
+      this.dir.x *= -1;
     }
     if (newXpos >= width - this.boundaryOffset) {
-      newXpos = width - this.boundaryOffset-1; 
+//       newXpos = width - this.boundaryOffset-1; 
+      this.dir.x *= -1; 
     }
     if (newYpos <= this.boundaryOffset) {
-      newYpos = this.boundaryOffset+1;
+//       newYpos = this.boundaryOffset+1;
+      this.dir.y *= -1; 
     }
     if (newYpos >= height - this.boundaryOffset) {
-      newYpos = height - this.boundaryOffset-1;
+//       newYpos = height - this.boundaryOffset-1;
+      this.dir.y *= -1; 
     }
     
     // create new boundaries:
